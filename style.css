@@ -14,3 +14,9 @@ form{text-align:left;margin-top:24px}.form-grid{display:grid;grid-template-colum
 .menu-box{background:#fff8f9;border:1px solid var(--line);border-radius:24px;padding:18px;margin-top:20px}.menu-box h3,.songs h3{font-size:27px;margin:0 0 6px}.menu-box p{margin:0 0 8px;color:var(--muted)}#menu2Label{display:none}.songs{margin:22px 0}.songs input{margin-bottom:10px}.response{display:none;margin-top:18px;padding:16px;border-radius:18px;line-height:1.55;text-align:center}.response.ok{display:block;background:#fff3f5;border:1px solid var(--line)}.response.error{display:block;background:#fff0f0;border:1px solid #e7a0a0}.closing h2{font-size:46px;margin:0}.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}.hidden{display:none!important}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes slowZoom{from{transform:scale(1.02)}to{transform:scale(1.08)}}@keyframes loaderOut{to{opacity:0;visibility:hidden}}
 @media(max-width:650px){.form-grid{grid-template-columns:1fr}.countdown{grid-template-columns:repeat(2,1fr)}.title-row{grid-template-columns:34px auto 34px}.hero-image{background-position:center top}}
+.reveal,
+.reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
