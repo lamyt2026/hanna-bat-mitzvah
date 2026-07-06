@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bat Mitzvah Hanna</title>
+  <meta name="description" content="Invitación al Bat Mitzvah de Hanna" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-card">
+      <p class="label">SAVE THE DATE</p>
+      <h2>BAT MITZVAH</h2>
+      <h1>HANNA</h1>
+
+      <div class="portrait-wrap">
+        <img src="assets/hanna-portada.jpg" alt="Hanna" class="portrait" />
+      </div>
+
+      <p class="hero-date">22 de Agosto · 2026</p>
+      <a class="btn primary" href="#invitacion">Abrir invitación</a>
+    </div>
+  </header>
+
+  <main id="invitacion">
+    <section class="section">
+      <p class="label rose">FALTAN</p>
+      <div class="countdown" id="countdown">
+        <div><strong>--</strong><span>DÍAS</span></div>
+        <div><strong>--</strong><span>HORAS</span></div>
+        <div><strong>--</strong><span>MIN</span></div>
+        <div><strong>--</strong><span>SEG</span></div>
+      </div>
+      <p class="soft">para celebrar junto a Hanna</p>
+    </section>
+
+    <section class="section">
+      <div class="title-row"><span></span><h2>Una noche especial</h2><span></span></div>
+      <p class="message">
+        Hay momentos que se viven una sola vez y personas con quienes queremos compartirlos para siempre.
+        Nos haría muy felices que nos acompañes a celebrar el Bat Mitzvah de Hanna.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="title-row"><span></span><h2>Información</h2><span></span></div>
+
+      <div class="cards">
+        <article class="event-card">
+          <p class="tag">Viernes 21/08 · 19:30 hs</p>
+          <h3>Kabalat Shabat</h3>
+          <p>BAMI</p>
+        </article>
+
+        <article class="event-card">
+          <p class="tag">Sábado 22/08 · 10:00 hs</p>
+          <h3>Lectura de Torá</h3>
+          <p>BAMI</p>
+        </article>
+
+        <article class="event-card featured">
+          <p class="tag">Sábado 22/08 · 20:00 a 01:30 hs</p>
+          <h3>Fiesta</h3>
+          <p><strong>Salón Doquint</strong></p>
+          <p>José Cubas 3474, CABA</p>
+          <div class="actions">
+            <a class="btn dark" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Salon%20Doquint%20Jose%20Cubas%203474%20CABA">Cómo llegar</a>
+            <a class="btn outline" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bat%20Mitzvah%20Hanna%20-%20Fiesta&dates=20260822T230000Z/20260823T043000Z&details=Fiesta%20Bat%20Mitzvah%20de%20Hanna&location=Salon%20Doquint%2C%20Jose%20Cubas%203474%2C%20CABA">Agregar al calendario</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="confirmacion">
+      <div class="title-row"><span></span><h2>Confirmación</h2><span></span></div>
+      <p class="soft">La confirmación corresponde únicamente a la fiesta.</p>
+
+      <form id="rsvpForm">
+        <label>Nombre y apellido
+          <input required name="nombre" type="text" placeholder="Ej. Esteban Silnik" />
+        </label>
+
+        <label>¿Asistís a la fiesta?
+          <select required name="asistencia" id="asistencia">
+            <option value="">Seleccionar</option>
+            <option value="Sí">Sí, confirmo asistencia</option>
+            <option value="No">No podré asistir</option>
+          </select>
+        </label>
+
+        <label id="cantidadBox">Cantidad de asistentes
+          <select required name="cantidad" id="cantidad">
+            <option value="">Seleccionar</option>
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+          </select>
+        </label>
+
+        <div class="menu-box" id="menuBox">
+          <h3>Preferencia de menú</h3>
+          <p>Indicá el menú para cada asistente confirmado.</p>
+
+          <div class="menu-person">
+            <h4>Asistente 1</h4>
+            <label class="radio"><input type="radio" name="menu1" value="Carne" required /> Carne</label>
+            <label class="radio"><input type="radio" name="menu1" value="Vegetariano" required /> Vegetariano</label>
+          </div>
+
+          <div class="menu-person" id="menu2Box">
+            <h4>Asistente 2</h4>
+            <label class="radio"><input type="radio" name="menu2" value="Carne" /> Carne</label>
+            <label class="radio"><input type="radio" name="menu2" value="Vegetariano" /> Vegetariano</label>
+          </div>
+        </div>
+
+        <div class="songs" id="songsBox">
+          <h3>5 canciones que no pueden faltar</h3>
+          <input name="cancion1" type="text" placeholder="Canción 1" />
+          <input name="cancion2" type="text" placeholder="Canción 2" />
+          <input name="cancion3" type="text" placeholder="Canción 3" />
+          <input name="cancion4" type="text" placeholder="Canción 4" />
+          <input name="cancion5" type="text" placeholder="Canción 5" />
+        </div>
+
+        <label>Mensaje para Hanna, opcional
+          <textarea name="mensaje" rows="4" placeholder="Dejá tu mensaje"></textarea>
+        </label>
+
+        <button class="btn primary full" type="submit" id="submitBtn">Confirmar asistencia</button>
+      </form>
+
+      <div id="response" class="response"></div>
+    </section>
+
+    <section class="section closing">
+      <h2>¡Te esperamos!</h2>
+      <p>Para compartir una noche muy especial junto a Hanna.</p>
+      <a class="btn whatsapp" target="_blank" href="https://wa.me/541167441130?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20Bat%20Mitzvah%20de%20Hanna.">Consultar por WhatsApp</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
