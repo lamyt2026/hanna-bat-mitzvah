@@ -141,7 +141,8 @@
     </section>
   </main>
 
-  <<script>
+  <script>
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxf4S2634i4-CdX68U0qKHgS7F15w2fTf2hyjAUHXQkFp_iUOsMpiaEo47DHbhnby9Q/exec';
 const targetDate = new Date(2026, 7, 22, 20, 0, 0);
 
 function updateCountdown() {
@@ -149,13 +150,8 @@ function updateCountdown() {
   if (!el) return;
 
   const diff = targetDate.getTime() - new Date().getTime();
-
-  if (diff <= 0) {
-    el.innerHTML = '<div><strong>¡Hoy!</strong><span>LLEGÓ EL GRAN DÍA</span></div>';
-    return;
-  }
-
   const totalSeconds = Math.floor(diff / 1000);
+
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -168,32 +164,52 @@ function updateCountdown() {
     '<div><strong>' + seconds + '</strong><span>SEG</span></div>';
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
-   function actualizarMenuAsistente2() {
+function actualizarMenuAsistente2() {
   const cantidad = document.querySelector('#cantidad');
   const menu2Box = document.querySelector('#menu2Box');
-
   if (!cantidad || !menu2Box) return;
 
   if (cantidad.value === '2') {
     menu2Box.style.display = 'block';
   } else {
     menu2Box.style.display = 'none';
-
-    document.querySelectorAll('input[name="menu2"]').forEach(function(input) {
-      input.checked = false;
-    });
+    document.querySelectorAll('input[name="menu2"]').forEach(i => i.checked = false);
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
   const cantidad = document.querySelector('#cantidad');
   if (cantidad) {
     cantidad.addEventListener('change', actualizarMenuAsistente2);
     actualizarMenuAsistente2();
   }
-}); 
-</script>>
+
+  const form = document.querySelector('#rsvpForm');
+  const response = document.querySelector('#response');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.fechaEnvio = new Date().toISOString();
+
+    response.className = 'response ok';
+    response.textContent = 'Enviando confirmación...';
+
+    await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(data)
+    });
+
+    form.style.display = 'none';
+    response.className = 'response ok';
+    response.innerHTML = '¡Muchas gracias!<br>Tu respuesta fue registrada correctamente.';
+  });
+});
+</script>
 </body>
 </html>
