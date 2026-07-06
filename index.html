@@ -169,6 +169,30 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+   function actualizarMenuAsistente2() {
+  const cantidad = document.querySelector('#cantidad');
+  const menu2Box = document.querySelector('#menu2Box');
+
+  if (!cantidad || !menu2Box) return;
+
+  if (cantidad.value === '2') {
+    menu2Box.style.display = 'block';
+  } else {
+    menu2Box.style.display = 'none';
+
+    document.querySelectorAll('input[name="menu2"]').forEach(function(input) {
+      input.checked = false;
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const cantidad = document.querySelector('#cantidad');
+  if (cantidad) {
+    cantidad.addEventListener('change', actualizarMenuAsistente2);
+    actualizarMenuAsistente2();
+  }
+}); 
 </script>>
 </body>
 </html>
